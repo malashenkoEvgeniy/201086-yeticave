@@ -1,7 +1,7 @@
 # Личный проект «YetiCave»
 
 * Студент: [Евгений Малашенко](https://up.htmlacademy.ru/php/6/user/201086).
-* Наставник: `Антон Попов`.
+* Наставник: [Антон Попов]
 (https://htmlacademy.ru/profile/joker).
 ---
 
