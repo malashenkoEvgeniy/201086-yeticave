@@ -1,42 +1,49 @@
 <?php
+define('DIRECTORY_PATH', 'img/lot');
 $is_auth = rand(0, 1);
-$user_name = ''; // укажите здесь ваше имя
+$user_name = 'Evgeniy';
 $user_avatar = 'img/user.jpg';
-$category = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$category = [
+  'boards' => 'Доски и лыжи',
+  'mounting' => 'Крепления',
+  'shoes' => 'Ботинки',
+  'clothes' => 'Одежда',
+  'tools' => 'Инструменты',
+  'other' => 'Разное'];
 $goods = [
     [
         'name' => '2014 Rossignol Disctrict Snowboard',
-        'category' => 'Доски и лыжи',
+        'category' => $category['boards'],
         'price' => 10999,
         'image' => 'img/lot-1.jpg'
     ],
     [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
-        'category' => 'Доски и лыжи',
+        'category' => $category['boards'],
         'price' => 159999,
         'image' => 'img/lot-2.jpg'
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
-        'category' => 'Крепления',
+        'category' => $category['mounting'],
         'price' => 8000,
         'image' => 'img/lot-3.jpg'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charcoal',
-        'category' => 'Ботинки',
+        'category' => $category['shoes'],
         'price' => 10999,
         'image' => 'img/lot-4.jpg'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charcoal',
-        'category' => 'Одежда',
+        'category' => $category['clothes'],
         'price' => 7500,
         'image' => 'img/lot-5.jpg'
     ],
     [
         'name' => 'Маска Oakley Canopy',
-        'category' => 'Разное',
+        'category' => $category['other'],
         'price' => 5400,
         'image' => "img/lot-6.jpg"
     ]
@@ -94,11 +101,11 @@ $goods = [
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-          <?php foreach($category as $category_item):?>
+          <?php foreach($category as $category_name): ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?= $category_item; ?></a>
+                <a class="promo__link" href="pages/all-lots.html"><?= $category_name; ?></a>
             </li>
-          <?php endforeach; ?>    
+          <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
@@ -134,11 +141,11 @@ $goods = [
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-          <?php foreach($category as $category_item):?>
+          <?php foreach($category as $category_name):?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?= $category_item; ?></a>
+                <a href="pages/all-lots.html"><?= $category_name; ?></a>
             </li>
-          <?php endforeach; ?>  
+          <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
