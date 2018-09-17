@@ -1,5 +1,5 @@
 <?php
-define('DIRECTORY_PATH', 'img/lot');
+const IMAGE_PATH = 'img/';
 $is_auth = rand(0, 1);
 $user_name = 'Evgeniy';
 $user_avatar = 'img/user.jpg';
@@ -15,37 +15,37 @@ $goods = [
         'name' => '2014 Rossignol Disctrict Snowboard',
         'category' => $category['boards'],
         'price' => 10999,
-        'image' => 'img/lot-1.jpg'
+        'image' => IMAGE_PATH.'lot-1.jpg'
     ],
     [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'category' => $category['boards'],
         'price' => 159999,
-        'image' => 'img/lot-2.jpg'
+        'image' => IMAGE_PATH.'lot-2.jpg'
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'category' => $category['mounting'],
         'price' => 8000,
-        'image' => 'img/lot-3.jpg'
+        'image' => IMAGE_PATH.'lot-3.jpg'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charcoal',
         'category' => $category['shoes'],
         'price' => 10999,
-        'image' => 'img/lot-4.jpg'
+        'image' => IMAGE_PATH.'lot-4.jpg'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charcoal',
         'category' => $category['clothes'],
         'price' => 7500,
-        'image' => 'img/lot-5.jpg'
+        'image' => IMAGE_PATH.'lot-5.jpg'
     ],
     [
         'name' => 'Маска Oakley Canopy',
         'category' => $category['other'],
         'price' => 5400,
-        'image' => "img/lot-6.jpg"
+        'image' => IMAGE_PATH."lot-6.jpg"
     ]
 ];
 ?>
