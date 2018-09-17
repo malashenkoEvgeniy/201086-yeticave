@@ -49,14 +49,14 @@ $goods = [
         'image' => 'lot-6.jpg'
     ]
 ];
-  function format_sum ($number) {
-        $sum = ceil($number);
-    if ($sum < 1000) {
-        return $sum;
-    }
-    else {
-        return number_format($sum, 0, '.', ' ');
-    }
+function format_sum ($number) {
+      $sum = ceil($number);
+  if ($sum < 1000) {
+      return $sum;
+  }
+  else {
+      return number_format($sum, 0, '.', ' ');
+}
 }
 ?>
 <!DOCTYPE html>
