@@ -9,43 +9,44 @@ $category = [
   'shoes' => 'Ботинки',
   'clothes' => 'Одежда',
   'tools' => 'Инструменты',
-  'other' => 'Разное'];
+  'other' => 'Разное'
+];
 $goods = [
     [
         'name' => '2014 Rossignol Disctrict Snowboard',
         'category' => $category['boards'],
         'price' => 10999,
-        'image' => IMAGE_PATH.'lot-1.jpg'
+        'image' => 'lot-1.jpg'
     ],
     [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'category' => $category['boards'],
         'price' => 159999,
-        'image' => IMAGE_PATH.'lot-2.jpg'
+        'image' => 'lot-2.jpg'
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'category' => $category['mounting'],
         'price' => 8000,
-        'image' => IMAGE_PATH.'lot-3.jpg'
+        'image' => 'lot-3.jpg'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charcoal',
         'category' => $category['shoes'],
         'price' => 10999,
-        'image' => IMAGE_PATH.'lot-4.jpg'
+        'image' => 'lot-4.jpg'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charcoal',
         'category' => $category['clothes'],
         'price' => 7500,
-        'image' => IMAGE_PATH.'lot-5.jpg'
+        'image' => 'lot-5.jpg'
     ],
     [
         'name' => 'Маска Oakley Canopy',
         'category' => $category['other'],
         'price' => 5400,
-        'image' => IMAGE_PATH."lot-6.jpg"
+        'image' => 'lot-6.jpg'
     ]
 ];
 ?>
@@ -116,7 +117,7 @@ $goods = [
           <?php foreach($goods as $good):?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="<?= $good['image']; ?>" width="350" height="260" alt="<?= $good['name']; ?>">
+                    <img src="<?= IMAGE_PATH . $good['image']; ?>" width="350" height="260" alt="<?= $good['name']; ?>">
                 </div>
                 <div class="lot__info">
                     <span class="lot__category"><?= $good['category']; ?></span>
