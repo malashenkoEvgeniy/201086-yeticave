@@ -1,6 +1,6 @@
 <?php
 $config = [
   'sitename' => 'Yeticave',
-  'tpl_path' => 'template/',
-  'enable' => true
+  'enable' => true,
+  'image_path' => 'img/'
 ];

@@ -1,6 +1,4 @@
 <?php
-const IMAGE_PATH = 'img/';
-
 // ставки пользователей, которыми надо заполнить таблицу
 $bets = [
     ['name' => 'Иван', 'price' => 11500, 'ts' => strtotime('-' . rand(1, 50) .' minute')],
