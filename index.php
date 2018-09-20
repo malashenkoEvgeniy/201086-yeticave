@@ -11,4 +11,3 @@ $content = include_template('layout.php', ['content'=>$page_content,
 																					 'user_avatar' => $user_avatar,
 																					 'user_name'=> $user_name]);
 print($content);
-echo get_time_overlot();
