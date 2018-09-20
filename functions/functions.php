@@ -30,9 +30,9 @@ function include_template($name, $data) {
 }
 
 /**
- * Функция шаблонизатор
- * @param {string} $name шаблон {string} $data данные для шаблона
- * @return {string} Итоговый HTML-код
+ * Функция отсчета времени до конца действия лота
+ * @param 'Null'
+ * @return {string} Время до конца лота
  */
 function get_time_overlot () {
   $target_time = strtotime('23:59:59') + 1;
