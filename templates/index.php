@@ -18,7 +18,7 @@
       <?php foreach($goods as $good):?>
         <li class="lots__item lot">
           <div class="lot__image">
-            <img src="<?= IMAGE_PATH . $good['image']; ?>" width="350" height="260" alt="<?= $good['name']; ?>">
+            <img src="<?= $config['image_path'] . $good['image']; ?>" width="350" height="260" alt="<?= $good['name']; ?>">
           </div>
           <div class="lot__info">
             <span class="lot__category"><?= $good['category']; ?></span>
@@ -29,7 +29,7 @@
                 <span class="lot__cost"><?= format_sum($good['price']); ?><b class="rub">р</b></span>
               </div>
               <div class="lot__timer timer">
-
+                <?= get_time_overlot (); ?>
               </div>
             </div>
           </div>

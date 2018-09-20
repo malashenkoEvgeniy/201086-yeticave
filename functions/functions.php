@@ -4,7 +4,7 @@
  * @param {int} $number исходная цена
  * @return {int|string} форматированую цену
  */
-function format_sum ($number) {
+function format_sum($number) {
   $sum = ceil($number);
   if ($sum < 1000) {
     return $sum;
@@ -28,3 +28,18 @@ function include_template($name, $data) {
   require_once $name;
   return ob_get_clean();
 }
+
+/**
+ * Функция отсчета времени до конца действия лота
+ * @param 'Null'
+ * @return {string} Время до конца лота
+ */
+function get_time_overlot($target_stamp = '23:59:59') {
+  $target_time = strtotime($target_stamp) + 1;
+  $rezult = ($target_time - time());
+  $hour =($rezult - $rezult % 3600) / 3600;
+  $el = $rezult % 3600;
+  $min = floor($el / 60);
+  return $hour.' : '.$min;
+}
+
