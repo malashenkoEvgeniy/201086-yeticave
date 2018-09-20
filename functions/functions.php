@@ -28,3 +28,17 @@ function include_template($name, $data) {
   require_once $name;
   return ob_get_clean();
 }
+
+/**
+ * Функция шаблонизатор
+ * @param {string} $name шаблон {string} $data данные для шаблона
+ * @return {string} Итоговый HTML-код
+ */
+function get_time_overlot () {
+  $target_time = strtotime('23:59:59') + 1;
+  $rezult = ($target_time - time());
+  $hour=($rezult - $rezult % 3600) / 3600;
+  $el = $rezult % 3600;
+  $min= floor($el / 60);
+  return $hour.' : '.$min;
+}
