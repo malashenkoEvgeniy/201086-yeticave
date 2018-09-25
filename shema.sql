@@ -8,6 +8,59 @@ CREATE DATABASE yeticave
     title CHAR (128),
     title_description CHAR (128)
   );
+  CREATE UNIQUE INDEX u1 ON category(title);
+  CREATE UNIQUE INDEX u2 ON category(title_description);
+  CREATE TABLE goods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_lot CHAR (128),
+    category_id CHAR (128),
+    price INT,
+    image CHAR (128)
+  );
+  CREATE TABLE bets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_user CHAR (128),
+    price INT,
+    ts INT
+  );
+  CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email CHAR (128),
+    name CHAR (128),
+    password CHAR (128)
+  );
+  CREATE UNIQUE INDEX u3 ON users(email);
+  CREATE INDEX usersEmail ON users(email);
+  INSERT INTO users
+    SET email => "ignat.v@gmail.com",
+        name => "Игнат",
+        password => "$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka";
+  INSERT INTO users
+    SET email => "kitty_93@li.ru",
+        name => "Леночка",
+        password => "$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa";
+  INSERT INTO users
+    SET email => "warrior07@mail.ru",
+        name => "Руслан",
+        password => "$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW";
+
+  INSERT INTO bets
+    SET name_user = "Иван",
+    price = 11500,
+    ts = ?;
+  INSERT INTO bets
+    SET name_user = "Константин",
+    price = 11000,
+    ts = ?;
+  INSERT INTO bets
+    SET name_user = "Евгений",
+    price = 10500,
+    ts = ?;
+  INSERT INTO bets
+    SET name_user = "Семён",
+    price = 110000,
+    ts = ?;
+
   INSERT INTO category
     SET title = "boards",
         title_description = "Доски и лыжи";
@@ -26,14 +79,6 @@ CREATE DATABASE yeticave
   INSERT INTO category
     SET title = "other",
       title_description = "Разное";
-
-  CREATE TABLE goods (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name_lot CHAR (128),
-    category_id CHAR (128),
-    price INT,
-    image CHAR (128)
-  );
   INSERT INTO goods
     SET name_lot = "2014 Rossignol Disctrict Snowboard",
         category_id =  1,
@@ -65,5 +110,4 @@ CREATE DATABASE yeticave
         price = 5400,
         image = "lot-6.jpg";
 
-  #SELECT * FROM category c, JOIN goods g ON c.id = g.category_id;
-  #Где то тут ошибка!!!!
+
