@@ -21,7 +21,7 @@ CREATE DATABASE yeticave
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_user CHAR (128),
     price INT,
-    ts INT
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
   CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,34 +32,30 @@ CREATE DATABASE yeticave
   CREATE UNIQUE INDEX u3 ON users(email);
   CREATE INDEX usersEmail ON users(email);
   INSERT INTO users
-    SET email => "ignat.v@gmail.com",
-        name => "Игнат",
-        password => "$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka";
+    SET email = "ignat.v@gmail.com",
+        name = "Игнат",
+        password = "$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka";
   INSERT INTO users
-    SET email => "kitty_93@li.ru",
-        name => "Леночка",
-        password => "$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa";
+    SET email = "kitty_93@li.ru",
+        name = "Леночка",
+        password = "$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa";
   INSERT INTO users
-    SET email => "warrior07@mail.ru",
-        name => "Руслан",
-        password => "$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW";
+    SET email = "warrior07@mail.ru",
+        name = "Руслан",
+        password = "$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW";
 
   INSERT INTO bets
     SET name_user = "Иван",
-    price = 11500,
-    ts = ?;
+    price = 11500;
   INSERT INTO bets
     SET name_user = "Константин",
-    price = 11000,
-    ts = ?;
+    price = 11000;
   INSERT INTO bets
     SET name_user = "Евгений",
-    price = 10500,
-    ts = ?;
+    price = 10500;
   INSERT INTO bets
     SET name_user = "Семён",
-    price = 110000,
-    ts = ?;
+    price = 110000;
 
   INSERT INTO category
     SET title = "boards",
