@@ -10,6 +10,12 @@ $bets = [
 $is_auth = rand(0, 1);
 $user_name = 'Evgeniy';
 $user_avatar = 'img/user.jpg';
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$db_name = 'yeticave';
+
+/*
 $category = [
   'boards' => 'Доски и лыжи',
   'mounting' => 'Крепления',
@@ -18,6 +24,7 @@ $category = [
   'tools' => 'Инструменты',
   'other' => 'Разное'
 ];
+
 $goods = [
   [
     'name' => '2014 Rossignol Disctrict Snowboard',
@@ -53,3 +60,4 @@ $goods = [
     'image' => 'lot-6.jpg'
   ]
 ];
+*/
