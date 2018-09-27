@@ -13,35 +13,58 @@ CREATE DATABASE yeticave
   CREATE TABLE goods (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_lot CHAR (128),
+    description TEXT,
+    image CHAR (128),
     category_id CHAR (128),
     price INT,
-    image CHAR (128)
+    dateover DATETIME,
+    step INT
+  );
+  CREATE TABLE lots (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lotstart DATETIME,
+    name_lot CHAR (128),
+    description TEXT,
+    image CHAR (128),
+    pricestart INT,
+    dateover DATETIME,
+    step INT,
+    ahtor CHAR (128),
+    winer CHAR (128),
+    category_id CHAR (128)
   );
   CREATE TABLE bets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_user CHAR (128),
     price INT,
-    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    lot_id INT,
+    user_id INT
   );
   CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    registration DATETIME,
     email CHAR (128),
-    name CHAR (128),
-    password CHAR (128)
+    name_user CHAR (128),
+    password CHAR (128),
+    contact_details TEXT,
+    avatar CHAR (128),
+    lots CHAR (64),
+    bets CHAR (64)
   );
   CREATE UNIQUE INDEX u3 ON users(email);
   CREATE INDEX usersEmail ON users(email);
   INSERT INTO users
     SET email = "ignat.v@gmail.com",
-        name = "Игнат",
+        name_user = "Игнат",
         password = "$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka";
   INSERT INTO users
     SET email = "kitty_93@li.ru",
-        name = "Леночка",
+        name_user = "Леночка",
         password = "$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa";
   INSERT INTO users
     SET email = "warrior07@mail.ru",
-        name = "Руслан",
+        name_user = "Руслан",
         password = "$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW";
 
   INSERT INTO bets
