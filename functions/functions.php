@@ -43,3 +43,14 @@ function get_time_overlot($target_stamp = '23:59:59') {
   return $hour.' : '.$min;
 }
 
+/**
+ * Функция отсчета времени до конца действия лота
+ * @param 'Null'
+ * @return {string} Время до конца лота
+ */
+function get_category_name_byid($categories, $category_id) {
+  foreach ($categories as $categories_item) {
+    if ($categories_item['id']==$category_id) $category_tile = $categories_item['title'];
+  }
+  return $category_tile;
+}

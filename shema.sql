@@ -3,13 +3,13 @@ CREATE DATABASE yeticave
   DEFAULT COLLATE utf8_general_ci;
   USE yeticave;
 
-  CREATE TABLE category (
+  CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title CHAR (128),
-    title_description CHAR (128)
+    alias CHAR (128),
+    title CHAR (128)
   );
-  CREATE UNIQUE INDEX u1 ON category(title);
-  CREATE UNIQUE INDEX u2 ON category(title_description);
+  CREATE UNIQUE INDEX u1 ON categories(alias);
+  CREATE UNIQUE INDEX u2 ON categories(title);
   CREATE TABLE goods (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_lot CHAR (128),
@@ -80,24 +80,24 @@ CREATE DATABASE yeticave
     SET name_user = "Семён",
     price = 110000;
 
-  INSERT INTO category
-    SET title = "boards",
-        title_description = "Доски и лыжи";
-  INSERT INTO category
-    SET title = "mounting",
-      title_description = "Крепления";
-  INSERT INTO category
-    SET title = "shoes",
-      title_description = "Ботинки";
-  INSERT INTO category
-    SET title = "clothes",
-      title_description = "Одежда";
-  INSERT INTO category
-    SET title = "tools",
-      title_description = "Инструменты";
-  INSERT INTO category
-    SET title = "other",
-      title_description = "Разное";
+  INSERT INTO categories
+    SET alias = "boards",
+        title = "Доски и лыжи";
+  INSERT INTO categories
+    SET alias = "mounting",
+        title = "Крепления";
+  INSERT INTO categories
+    SET alias = "shoes",
+        title = "Ботинки";
+  INSERT INTO categories
+    SET alias = "clothes",
+        title = "Одежда";
+  INSERT INTO categories
+    SET alias = "tools",
+        title = "Инструменты";
+  INSERT INTO categories
+    SET alias = "other",
+        title = "Разное";
   INSERT INTO goods
     SET name_lot = "2014 Rossignol Disctrict Snowboard",
         category_id =  1,
