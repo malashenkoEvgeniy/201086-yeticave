@@ -31,7 +31,7 @@ function include_template($name, $data) {
 
 /**
  * Функция отсчета времени до конца действия лота
- * @param 'Null'
+ * @param 'date'
  * @return {string} Время до конца лота
  */
 function get_time_overlot($target_stamp = '23:59:59') {
@@ -44,13 +44,22 @@ function get_time_overlot($target_stamp = '23:59:59') {
 }
 
 /**
- * Функция отсчета времени до конца действия лота
- * @param 'Null'
- * @return {string} Время до конца лота
+ * Функция принимает масив категорий и айди категории
+ * @param {string}
+ * @return {string} Название категории
  */
 function get_category_name_byid($categories, $category_id) {
   foreach ($categories as $categories_item) {
     if ($categories_item['id']==$category_id) $category_tile = $categories_item['title'];
   }
   return $category_tile;
+}
+/**
+ * Функция принимает соеденение и запрос
+ * @param {string}
+ * @return {string} массив данных
+ */
+function get_array_in_base($link, $query) {
+  $result = mysqli_query($link, $query) or die( mysqli_error($link) );
+  return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }

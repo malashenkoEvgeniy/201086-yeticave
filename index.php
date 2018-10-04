@@ -8,12 +8,10 @@ $link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($l
 mysqli_query($link, "SET NAMES 'utf8'");
 
 $query = "SELECT name_lot, image, category_id, price FROM goods";
-$result = mysqli_query($link, $query) or die( mysqli_error($link) );
-$goods = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$goods = get_array_in_base($link, $query);
 
 $query = "SELECT title, id FROM categories";
-$result = mysqli_query($link, $query) or die( mysqli_error($link) );
-$categories= mysqli_fetch_all($result, MYSQLI_ASSOC);
+$categories= get_array_in_base($link, $query);
 
 $page_content = include_template('index.php', ['categories' => $categories,
                                                'goods' => $goods,

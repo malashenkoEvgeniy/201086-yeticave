@@ -128,5 +128,3 @@ CREATE DATABASE yeticave
         category_id =  5,
         price = 5400,
         image = "lot-6.jpg";
-
-
