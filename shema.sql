@@ -10,16 +10,6 @@ CREATE DATABASE yeticave
   );
   CREATE UNIQUE INDEX u1 ON categories(alias);
   CREATE UNIQUE INDEX u2 ON categories(title);
-  CREATE TABLE goods (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name_lot CHAR (128),
-    description TEXT,
-    image CHAR (128),
-    category_id CHAR (128),
-    price INT,
-    dateover DATETIME,
-    step INT
-  );
   CREATE TABLE lots (
     id INT AUTO_INCREMENT PRIMARY KEY,
     lotstart DATETIME,
@@ -98,33 +88,43 @@ CREATE DATABASE yeticave
   INSERT INTO categories
     SET alias = "other",
         title = "Разное";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "2014 Rossignol Disctrict Snowboard",
         category_id =  1,
-        price = 10999,
+        pricestart = 10999,
         image = "lot-1.jpg";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "DC Ply Mens 2016/2017 Snowboard",
         category_id =  1,
-        price = 159999,
+        pricestart = 159999,
+        description = 'Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
+          снег
+          мощным щелчкоми четкими дугами. Стекловолокно Bi-Ax, уложенное в двух направлениях, наделяет этот
+          снаряд
+          отличной гибкостью и отзывчивостью, а симметричная геометрия в сочетании с классическим прогибом
+          кэмбер
+          позволит уверенно держать высокие скорости. А если к концу катального дня сил совсем не останется,
+          просто
+          посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не оставляла
+          равнодушным.',
         image = "lot-2.jpg";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "Крепления Union Contact Pro 2015 года размер L/XL",
         category_id =  2,
-        price = 8000,
+        pricestart = 8000,
         image = "lot-3.jpg";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "Ботинки для сноуборда DC Mutiny Charcoal",
         category_id =  3,
-        price = 10999,
+        pricestart = 10999,
         image = "lot-4.jpg";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "Куртка для сноуборда DC Mutiny Charcoal",
         category_id =  4,
-        price = 7500,
+        pricestart = 7500,
         image = "lot-5.jpg";
-  INSERT INTO goods
+  INSERT INTO lots
     SET name_lot = "Маска Oakley Canopy",
         category_id =  5,
-        price = 5400,
+        pricestart = 5400,
         image = "lot-6.jpg";
