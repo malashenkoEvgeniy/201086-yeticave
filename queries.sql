@@ -1,7 +1,7 @@
 USE yeticave;
 #обьеденяет таблицу категорий и товаров
 #SELECT g.id, name_lot, price, image, title_description FROM goods g
-#JOIN category c 
+#JOIN category c
 #ON c.id = g.category_id;
 #отображает Существующий список категорий
 SELECT title, title_description FROM category WHERE id>0;
