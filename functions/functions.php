@@ -45,14 +45,16 @@ function get_time_overlot($target_stamp = '23:59:59') {
 
 /**
  * Функция принимает масив категорий и айди категории
- * @param {string}
+ * @param {array}
  * @return {string} Название категории
  */
 function get_category_name_byid($categories, $category_id) {
   foreach ($categories as $categories_item) {
-    if ($categories_item['id']==$category_id) $category_tile = $categories_item['title'];
+    if ($categories_item['id'] == $category_id) {
+      $category_tile = $categories_item['title'];
+      return $category_tile;
   }
-  return $category_tile;
+
 }
 /**
  * Функция принимает соеденение и запрос
