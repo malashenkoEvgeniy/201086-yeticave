@@ -7,10 +7,10 @@ require_once 'functions/functions.php';
 $link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($link));
 mysqli_query($link, "SET NAMES 'utf8'");
 
-$query = "SELECT name_lot, image, category_id, price FROM goods";
+$query = "SELECT id, name_lot, image, category_id, pricestart FROM lots";
 $goods = get_array_in_base($link, $query);
 
-$query = "SELECT title, id FROM categories";
+$query = "SELECT alias, title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
 $page_content = include_template('index.php', ['categories' => $categories,

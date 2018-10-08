@@ -37,7 +37,7 @@ function include_template($name, $data) {
 function get_time_overlot($target_stamp = '23:59:59') {
   $target_time = strtotime($target_stamp) + 1;
   $rezult = ($target_time - time());
-  $hour =($rezult - $rezult % 3600) / 3600;
+  $hour = ($rezult - $rezult % 3600) / 3600;
   $el = $rezult % 3600;
   $min = floor($el / 60);
   return $hour.' : '.$min;
@@ -51,17 +51,16 @@ function get_time_overlot($target_stamp = '23:59:59') {
 function get_category_name_byid($categories, $category_id) {
   foreach ($categories as $categories_item) {
     if ($categories_item['id'] == $category_id) {
-      $category_tile = $categories_item['title'];
-      return $category_tile;
+      return $categories_item['title'];
+    }
   }
-
 }
 /**
  * Функция принимает соеденение и запрос
- * @param {string}
+ * @param {resourse}
  * @return {string} массив данных
  */
 function get_array_in_base($link, $query) {
-  $result = mysqli_query($link, $query) or die( mysqli_error($link) );
+  $result = mysqli_query($link, $query) or die(mysqli_error($link));
   return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
