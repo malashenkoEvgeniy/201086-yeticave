@@ -4,23 +4,15 @@ require_once 'config/config.php';
 require_once 'functions/functions.php';
 
 
-$link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($link));
+
 mysqli_query($link, "SET NAMES 'utf8'");
 
 $query = "SELECT id, name_lot, image, category_id, pricestart, description FROM lots";
 $goods = get_array_in_base($link, $query);
-/*echo '<pre>';
-var_dump($goods);
-echo '</pre>';*/
+
 $query = "SELECT title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
-/*
-echo '<pre>';
-var_dump(get_array_by_id($goods, $_GET['id']));
-echo '</pre>';
-
-*/
 if (isset($_GET['id'])) {
     	$id_lot = $_GET['id'];
   	}
@@ -45,5 +37,3 @@ $content = include_template('layout.php', ['content'=>$lot_content,
 																					 'user_avatar' => $user_avatar,
 																					 'user_name'=> $user_name]);
 print($content);
-
-
