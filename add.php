@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors[$key] = 'Это поле надо заполнить';
 		}
 	}
+  var_dump($_FILES);
+    var_dump($_POST);
 
 	if (isset($_FILES['file']['lot-name'])) {
 		$tmp_name = $_FILES['file']['tmp_name'];
@@ -54,23 +56,23 @@ else {
 	$page_content = include_template('add.php', []);
 }
 
-$layout_content = include_template('layout.php', [
+$content = include_template('layout.php', [
 	'content'    => $page_content,
 	'categories' => [],
 	'title'      => 'Yeticave - Добавление лота'
 ]);
 
 
-/**/
-$lot_content = include_template('add.php', ['categories' => $categories,
+/*
+$add_content = include_template('add.php', ['categories' => $categories,
                                             'goods' => $goods,
                                             'config' => $config]);
 
-$content = include_template('layout.php', ['content'=>$lot_content,
+$content = include_template('layout.php', ['content'=>$add_content,
 																					 'categories' => $categories,
 																					 'is_auth' => $is_auth,
 																					 'user_avatar' => $user_avatar,
-																					 'user_name'=> $user_name]);
+																					 'user_name'=> $user_name]);*/
 print($content);
 
 

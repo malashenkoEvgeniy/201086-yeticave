@@ -10,7 +10,3 @@ $bets = [
 $is_auth = rand(0, 1);
 $user_name = 'Evgeniy';
 $user_avatar = 'img/user.jpg';
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$db_name = 'yeticave';

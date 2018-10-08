@@ -14,15 +14,15 @@ $query = "SELECT title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
 if (isset($_GET['id'])) {
-    	$id_lot = $_GET['id'];
+    	$id_lot = (int)$_GET['id'];
   	}
 
-    $query = "SELECT id, name_lot, image, category_id, pricestart, description FROM lots WHERE id=$id_lot";
-
-    if ($res = mysqli_query($link, $query)) {
-        $goods = mysqli_fetch_assoc($res);
+    $query = "SELECT id, name_lot, image, category_id, pricestart, description FROM lots WHERE id=$id_lot";/*переписать на подготовленные вырважения*/
+    $goods = get_array_in_base($link, $query);
+    print_r($goods);
+    if (!empty($goods)) {
         $lot_content = include_template('lot.php', ['categories' => $categories,
-                                                    'goods' => $goods,
+                                                    'goods' => $goods[0],
                                                     'config' => $config]);
     }
     else {

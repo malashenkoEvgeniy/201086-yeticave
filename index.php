@@ -10,7 +10,7 @@ mysqli_query($link, "SET NAMES 'utf8'");
 $query = "SELECT id, name_lot, image, category_id, pricestart FROM lots";
 $goods = get_array_in_base($link, $query);
 
-$query = "SELECT title, id FROM categories";
+$query = "SELECT alias, title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
 $page_content = include_template('index.php', ['categories' => $categories,
