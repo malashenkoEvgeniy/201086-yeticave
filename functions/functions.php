@@ -64,3 +64,4 @@ function get_array_in_base($link, $query) {
   $result = mysqli_query($link, $query) or die(mysqli_error($link));
   return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
