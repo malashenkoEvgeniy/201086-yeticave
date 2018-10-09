@@ -19,13 +19,12 @@ CREATE DATABASE yeticave
     pricestart INT,
     dateover DATETIME,
     step INT,
-    ahtor CHAR (128),
-    winer CHAR (128),
-    category_id CHAR (128)
+    author_id INT,
+    winer_id INT,
+    category_id INT
   );
   CREATE TABLE bets (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name_user CHAR (128),
     price INT,
     ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     lot_id INT,
@@ -36,11 +35,9 @@ CREATE DATABASE yeticave
     registration DATETIME,
     email CHAR (128),
     name_user CHAR (128),
-    password CHAR (128),
+    password CHAR (64),
     contact_details TEXT,
-    avatar CHAR (128),
-    lots CHAR (64),
-    bets CHAR (64)
+    avatar CHAR (128)
   );
   CREATE UNIQUE INDEX u3 ON users(email);
   CREATE INDEX usersEmail ON users(email);
@@ -58,16 +55,16 @@ CREATE DATABASE yeticave
         password = "$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW";
 
   INSERT INTO bets
-    SET name_user = "Иван",
+    SET user_id = 1,
     price = 11500;
   INSERT INTO bets
-    SET name_user = "Константин",
+    SET user_id = 3,
     price = 11000;
   INSERT INTO bets
-    SET name_user = "Евгений",
+    SET user_id = 2,
     price = 10500;
   INSERT INTO bets
-    SET name_user = "Семён",
+    SET user_id = 4,
     price = 110000;
 
   INSERT INTO categories
