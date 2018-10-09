@@ -56,6 +56,18 @@ function get_category_name_byid($categories, $category_id) {
   }
 }
 /**
+ * Функция принимает масив категорий и имя категории
+ * @param {array}
+ * @return {string} id категории
+ */
+function get_category_id_byname($categories, $category_name) {
+  foreach ($categories as $categories_item) {
+    if ($categories_item['title'] == $category_name) {
+      return $categories_item['id'];
+    }
+  }
+}
+/**
  * Функция принимает соеденение и запрос
  * @param {resourse}
  * @return {string} массив данных
@@ -63,4 +75,48 @@ function get_category_name_byid($categories, $category_id) {
 function get_array_in_base($link, $query) {
   $result = mysqli_query($link, $query) or die(mysqli_error($link));
   return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+/**
+ * Создает подготовленное выражение на основе готового SQL запроса и переданных данных
+ *
+ * @param $link mysqli Ресурс соединения
+ * @param $sql string SQL запрос с плейсхолдерами вместо значений
+ * @param array $data Данные для вставки на место плейсхолдеров
+ *
+ * @return mysqli_stmt Подготовленное выражение
+ */
+function db_get_prepare_stmt($link, $sql, $data = []) {
+    $stmt = mysqli_prepare($link, $sql);
+
+    if ($data) {
+        $types = '';
+        $stmt_data = [];
+
+        foreach ($data as $value) {
+            $type = null;
+
+            if (is_int($value)) {
+                $type = 'i';
+            }
+            else if (is_string($value)) {
+                $type = 's';
+            }
+            else if (is_double($value)) {
+                $type = 'd';
+            }
+
+            if ($type) {
+                $types .= $type;
+                $stmt_data[] = $value;
+            }
+        }
+
+        $values = array_merge([$stmt, $types], $stmt_data);
+
+        $func = 'mysqli_stmt_bind_param';
+        $func(...$values);
+    }
+
+    return $stmt;
 }

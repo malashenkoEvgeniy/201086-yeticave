@@ -3,7 +3,7 @@
     <ul class="nav__list container">
       <?php foreach($categories as $category_name): ?>
         <li class="nav__item">
-          <a href="pages/all-lots.html"><?= $category_name['title']; ?></a>
+          <a href="category.php?alias=<?= $category_name['alias']?>"><?= $category_name['title']; ?></a>
         </li>
       <?php endforeach; ?>
     </ul>
