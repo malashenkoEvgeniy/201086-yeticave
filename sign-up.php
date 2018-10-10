@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = db_get_prepare_stmt($link, $sql, [
                                             $data_users['email'],
                                             $data_users['name_user'],
-                                            $data_users['password'],
+                                            password_hash($data_users['password'], PASSWORD_DEFAULT),
                                             $data_users['contact_details']/*,
                                             $data_users['path']*/
                                             ]);
