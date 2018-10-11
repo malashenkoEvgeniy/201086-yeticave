@@ -22,28 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 	}
 
-	if (!empty($_FILES['avatar']['name'])) {
-		$tmp_name = $_FILES['avatar']['tmp_name'];
-		$path = $_FILES['avatar']['name'];
-
-		$finfo = finfo_open(FILEINFO_MIME_TYPE);
-		$file_type = finfo_file($finfo, $tmp_name);
-		if ($file_type !== "image/jpeg") {
-			$errors['avatar'] = 'Загрузите картинку';
-		}
-		else {
-			move_uploaded_file($tmp_name, 'img/' . $path);
-			$data_users['path'] = $path;
-		}
-    /**/
+$email = mysqli_real_escape_string($link, $data_users ['email']);
+    $sql = "SELECT id FROM users WHERE email = '$email'";
+    $res = mysqli_query($link, $sql);
 
 
-	}
-    foreach ($users as $user) {
-		if ($data_users['email']==$user['email']) {
-            $errors['email'] = 'Данная почта занята!';
+    if (mysqli_num_rows($res) > 0) {
+        $errors['email'] = 'Пользователь с этим email уже зарегистрирован';
+    }
+    else {
+        $password = password_hash($form['password'], PASSWORD_DEFAULT);
 		}
-	}
 
 
 	if (count($errors)) {
