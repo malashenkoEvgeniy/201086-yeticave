@@ -8,7 +8,7 @@
     <?php endforeach; ?>
     </ul>
   </nav>
-  <form class="form form--add-lot container form--invalid" enctype="multipart/form-data" action="add.php" method="post"> <!-- form--invalid -->
+  <form class="form form--add-lot container <?=$classname = !empty($errors) ? "form__item--invalid" : "";  ?>" enctype="multipart/form-data" action="add.php" method="post"> <!-- form--invalid -->
    <?php $classname = !empty($errors['lot-name']) ? "form__item--invalid" : "";  ?>
     <h2>Добавление лота</h2>
     <div class="form__container-two">
