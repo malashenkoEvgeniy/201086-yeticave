@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	$email = mysqli_real_escape_string($link, $login_users['email']);
-	$sql = "SELECT id, email, password FROM users WHERE email = '$email'";
+	$sql = "SELECT id, email, name_user, password FROM users WHERE email = '$email'";
 	$res = mysqli_query($link, $sql);
 
 	$user = $res ? mysqli_fetch_array($res, MYSQLI_ASSOC) : null;
@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                  'dict' => $dict,
                                                  'categories' => $categories]);
 	} else {
-					
-            header("Location: index.php?id=" . $_SESSION['id']);
+						
+            header("Location: index.php" );
 
 
 		$page_content = include_template('login.php', ['data_users' => $data_users,
@@ -64,7 +64,10 @@ else {
 
 $content = include_template('layout.php', [	'content'    => $page_content,
                                             'categories' => $categories,
-                                            'title'      => 'Yeticave - Регистрация'
+                                            'title'      => 'Yeticave - Регистрация',
+																					 'is_auth' => $is_auth,
+																					 'user_avatar' => $user_avatar,
+																					 'user_name'=> $user_name
 ]);
 
 print($content);

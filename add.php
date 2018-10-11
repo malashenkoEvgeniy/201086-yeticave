@@ -3,6 +3,11 @@ require_once 'data.php';
 require_once 'config/config.php';
 require_once 'functions/functions.php';
 
+
+if (!$is_auth){
+	header('HTTP/1.0 403 Forbidden', true, 403);
+	die();
+}
 $query = "SELECT id, name_lot, image, category_id, pricestart, description FROM lots";
 $goods = get_array_in_base($link, $query);
 
@@ -78,7 +83,10 @@ else {
 
 $content = include_template('layout.php', [	'content'    => $page_content,
                                             'categories' => $categories,
-                                            'title'      => 'Yeticave - Добавление лота'
+                                            'title'      => 'Yeticave - Добавление лота',
+																					 'is_auth' => $is_auth,
+																					 'user_avatar' => $user_avatar,
+																					 'user_name'=> $user_name
 ]);
 
 print($content);
