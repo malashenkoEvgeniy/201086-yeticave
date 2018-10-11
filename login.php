@@ -12,7 +12,6 @@ $categories= get_array_in_base($link, $query);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$login_users = $_POST;
 
-
 	$dict = ['email' => 'электронная почта', 'password' => 'пароль'];
   $required = array_keys($dict);
 	$errors = [];
@@ -23,21 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	}
 
-  $counte =0;
-  foreach($users as $user){
-      if ($user['email'] == $login_users['email']) {
-        $counte ++;
-        if (!password_verify($login_users['password'], $user['password'])) {
-          $errors['password'] = 'Не верный пароль';
-        } else {
-          $login_id = $user['id'];
+	$email = mysqli_real_escape_string($link, $login_users['email']);
+	$sql = "SELECT id, email, password FROM users WHERE email = '$email'";
+	$res = mysqli_query($link, $sql);
 
-        }
-      }
-    }
-  if ($counte == 0) {
-        $errors['email'] = 'Необходимо зарегистрирывать почту';
-      }
+	$user = $res ? mysqli_fetch_array($res, MYSQLI_ASSOC) : null;
+
+	if (!count($errors) and $user) {
+		if (password_verify($login_users['password'], $user['password'])) {
+			$_SESSION['user'] = $user;
+		}
+		else {
+			$errors['password'] = 'Неверный пароль';
+		}
+	}
+	else {
+		$errors['email'] = 'Такой пользователь не найден';
+	}
 
 	if (count($errors)) {
 		$page_content = include_template('login.php', [
@@ -45,8 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                  'dict' => $dict,
                                                  'categories' => $categories]);
 	} else {
+					
+            header("Location: index.php?id=" . $_SESSION['id']);
 
-            header("Location: index.php?id=" . $login_id);
 
 		$page_content = include_template('login.php', ['data_users' => $data_users,
                                                     'categories' => $categories]);
