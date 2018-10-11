@@ -24,18 +24,19 @@
 
         <?php if ($is_auth): ?>
           <div class="user-menu__image">
-            <img src="img/user.jpg" width="40" height="40" alt="Пользователь">
+            <img src="img/<?=  $user_avatar? $user_avatar : 'user.jpg' ?>" width="40" height="40" alt="Пользователь">
           </div>
           <div class="user-menu__logged">
             <p><?= $user_name; ?></p>
+             <a href="logout.php">Выход</a>
           </div>
         <?php else: ?>
           <ul class="user-menu__list">
             <li class="user-menu__item">
-              <a href="#">Регистрация</a>
+              <a href="sign-up.php">Регистрация</a>
             </li>
             <li class="user-menu__item">
-              <a href="#">Вход</a>
+              <a href="login.php">Вход</a>
             </li>
           </ul>
         <?php endif; ?>
