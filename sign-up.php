@@ -41,22 +41,38 @@ $email = mysqli_real_escape_string($link, $data_users ['email']);
                                                  'dict' => $dict,
                                                  'categories' => $categories]);
 	} else {
-    $sql = 'INSERT INTO users (registration, email, name_user, password, contact_details) VALUES (NOW(), ?, ?, ?, ?)';
+	
+			if (!empty($_FILES['avatar']['name'])) {
+		$tmp_name = $_FILES['avatar']['tmp_name'];
+		$path = $_FILES['avatar']['name'];
+
+		$finfo = finfo_open(FILEINFO_MIME_TYPE);
+		$file_type = finfo_file($finfo, $tmp_name);
+		if ($file_type !== "image/jpeg") {
+			$errors['file'] = 'Загрузите картинку';
+		}
+		else {
+			move_uploaded_file($tmp_name, 'img/' . $path);
+			$data_users['path'] = $path;
+
+		}
+	}
+    $sql = 'INSERT INTO users (registration, email, name_user, password, contact_details, avatar) VALUES (NOW(), ?, ?, ?, ?, ?)';
 
 
     $stmt = db_get_prepare_stmt($link, $sql, [
                                             $data_users['email'],
                                             $data_users['name_user'],
                                             password_hash($data_users['password'], PASSWORD_DEFAULT),
-                                            $data_users['contact_details']/*,
-                                            $data_users['path']*/
+                                            $data_users['contact_details'],
+                                            $data_users['path']
                                             ]);
 
     $res = mysqli_stmt_execute($stmt);
         if ($res) {
             $sign_id = mysqli_insert_id($link);
 
-            header("Location: login.php?id=" . $lot_id);
+            header("Location: login.php" );
         }
 		$page_content = include_template('sign-up.php', ['data_users' => $data_users,
                                                     'categories' => $categories]);
