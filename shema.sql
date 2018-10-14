@@ -56,15 +56,19 @@ CREATE DATABASE yeticave
 
   INSERT INTO bets
     SET user_id = 1,
+    lot_id =1,
     price = 11500;
   INSERT INTO bets
     SET user_id = 3,
+    lot_id=2,
     price = 11000;
   INSERT INTO bets
     SET user_id = 2,
+    lot_id = 3,
     price = 10500;
   INSERT INTO bets
     SET user_id = 4,
+    lot_id = 4,
     price = 110000;
 
   INSERT INTO categories
@@ -88,11 +92,13 @@ CREATE DATABASE yeticave
   INSERT INTO lots
     SET name_lot = "2014 Rossignol Disctrict Snowboard",
         category_id =  1,
+        step = 100,
         pricestart = 10999,
         image = "lot-1.jpg";
   INSERT INTO lots
     SET name_lot = "DC Ply Mens 2016/2017 Snowboard",
         category_id =  1,
+        step = 100,
         pricestart = 159999,
         description = 'Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
           снег
@@ -108,20 +114,24 @@ CREATE DATABASE yeticave
   INSERT INTO lots
     SET name_lot = "Крепления Union Contact Pro 2015 года размер L/XL",
         category_id =  2,
+        step = 100,
         pricestart = 8000,
         image = "lot-3.jpg";
   INSERT INTO lots
     SET name_lot = "Ботинки для сноуборда DC Mutiny Charcoal",
         category_id =  3,
+        step = 100,
         pricestart = 10999,
         image = "lot-4.jpg";
   INSERT INTO lots
     SET name_lot = "Куртка для сноуборда DC Mutiny Charcoal",
         category_id =  4,
+        step = 100,
         pricestart = 7500,
         image = "lot-5.jpg";
   INSERT INTO lots
     SET name_lot = "Маска Oakley Canopy",
         category_id =  5,
+        step = 100,
         pricestart = 5400,
         image = "lot-6.jpg";
