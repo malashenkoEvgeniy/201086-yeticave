@@ -67,6 +67,19 @@ function get_category_id_byname($categories, $category_name) {
     }
   }
 }
+
+/**
+ * Функция принимает масив категорий и название категории
+ * @param {array}
+ * @return {string} id категории
+ */
+function get_category_id_byalias($categories, $category_name) {
+  foreach ($categories as $categories_item) {
+    if ($categories_item['alias'] == $category_name) {
+      return $categories_item['id'];
+    }
+  }
+}
 /**
  * Функция принимает соеденение и запрос
  * @param {resourse}
