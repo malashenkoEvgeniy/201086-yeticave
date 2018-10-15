@@ -11,7 +11,7 @@
     </nav>
     <div class="container">
       <section class="lots">
-        <h2>Результаты поиска по запросу «<span>Union</span>»</h2>
+        <h2>Результаты поиска по запросу «<span><?= $_GET['q']; ?></span>»</h2>
         <ul class="lots__list">
          <?php foreach($goods as $good):?>
           <li class="lots__item lot">

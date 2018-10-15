@@ -15,18 +15,19 @@ if (!$link) {
     show_error($content, mysqli_error($link));
   }
 
-	$$goods = [];
-	mysqli_query($link, 'CREATE FULLTEXT INDEX gif_ft_search ON lots(alias, title)');
+	$goods = [];
 	$search = $_GET['q'] ?? '';
+
 	if ($search) {
-		$sql = "SELECT  lots.id, name_lot, image, category_id, pricestart FROM lots"
-		  . "JOIN users ON lots.author_id = users.id "
-		  . "WHERE MATCH(alias, title) AGAINST(?)";
+
+    $sql = " SELECT id, name_lot, image, category_id, pricestart FROM lots WHERE MATCH (lots.name_lot, lots.description) AGAINST (?) ";
 
 		$stmt = db_get_prepare_stmt($link, $sql, [$search]);
 		mysqli_stmt_execute($stmt);
 		$result = mysqli_stmt_get_result($stmt);
 		$goods = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
 	}
 	$page_content = include_template('search.php', ['categories' => $categories,
                                                'goods' => $goods,
