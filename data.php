@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!empty($_SESSION['user'])) {
@@ -11,4 +10,3 @@ if (!empty($_SESSION['user'])) {
 } else {
 	$is_auth = 0;
 }
-
