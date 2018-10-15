@@ -41,6 +41,8 @@ CREATE DATABASE yeticave
   );
   CREATE UNIQUE INDEX u3 ON users(email);
   CREATE INDEX usersEmail ON users(email);
+  CREATE FULLTEXT INDEX search ON lots(name_lot);
+  CREATE FULLTEXT INDEX searchDescript ON lots(description);
   INSERT INTO users
     SET email = "ignat.v@gmail.com",
         name_user = "Игнат",
