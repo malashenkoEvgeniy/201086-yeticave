@@ -9,7 +9,7 @@ $users = get_array_in_base($link, $query);
 $query = "SELECT title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$login_users = $_POST;
 	$dict = ['email' => 'электронная почта', 'password' => 'пароль'];
   $required = array_keys($dict);

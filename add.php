@@ -13,7 +13,7 @@ $goods = get_array_in_base($link, $query);
 $query = "SELECT title, id FROM categories";
 $categories= get_array_in_base($link, $query);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$lots = $_POST;
 	$dict = ['lot-name' => 'Название', 'category' => 'категория лота', 'message' => 'Описание',  'lot-rate'=>'Начальная цена', 'lot-step'=>'Шаг ставки', 'lot-date'=>'Дата окончания торгов'];
   $required = array_keys($dict);

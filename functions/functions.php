@@ -50,7 +50,7 @@ function get_time_overlot($target_stamp = '23:59:59') {
  */
 function get_category_name_byid($categories, $category_id) {
   foreach ($categories as $categories_item) {
-    if ($categories_item['id'] == $category_id) {
+    if ($categories_item['id'] === $category_id) {
       return $categories_item['title'];
     }
   }
@@ -62,7 +62,7 @@ function get_category_name_byid($categories, $category_id) {
  */
 function get_category_id_byname($categories, $category_name) {
   foreach ($categories as $categories_item) {
-    if ($categories_item['title'] == $category_name) {
+    if ($categories_item['title'] === $category_name) {
       return $categories_item['id'];
     }
   }
@@ -75,7 +75,7 @@ function get_category_id_byname($categories, $category_name) {
  */
 function get_category_id_byalias($categories, $category_name) {
   foreach ($categories as $categories_item) {
-    if ($categories_item['alias'] == $category_name) {
+    if ($categories_item['alias'] === $category_name) {
       return $categories_item['id'];
     }
   }

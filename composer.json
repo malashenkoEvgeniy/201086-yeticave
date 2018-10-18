@@ -1,0 +1,9 @@
+{
+    "name": "admin/yeticave-first",
+    "description": "online auction of personal items",
+    "type": "poroject",
+    "license": "MIT",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    }
+}

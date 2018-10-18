@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
   $query = "SELECT id, name_lot, image, category_id, pricestart, description, step FROM lots";
 }
 $goods = get_array_in_base($link, $query);
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$bets_us = $_POST;
 	$dict = ['cost' => 'Ваша ставка'];
   $required = array_keys($dict);
